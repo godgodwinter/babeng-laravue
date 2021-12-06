@@ -8,6 +8,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Faker\Factory as Faker;
 
 class RegisterController extends Controller
 {
@@ -41,7 +42,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email:filter|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'password' => 'required|min:3|confirmed',
         ]);
     }
 
@@ -50,9 +51,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data): User
     {
+        $faker = Faker::create('id_ID');
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'username'=>$faker->unique()->username,
+            'tipeuser' => $faker->randomElement(['admin', 'member']),
             'password' => bcrypt($data['password']),
         ]);
     }
