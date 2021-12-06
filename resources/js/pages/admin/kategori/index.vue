@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-lg-10 m-auto">
-      <card :title="$t('home')">
+      <card :title="$t('Kategori')">
 
 
             <table id="myTable" class="table table-hover table-striped py-2 px-2" style="width:100%">
