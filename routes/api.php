@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\kategoricontroller;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\OAuthController;
@@ -23,6 +24,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => 'auth:api'], function () {
+
+    Route::get('/kategori', [kategoricontroller::class, 'index']);
+
+
     Route::post('logout', [LoginController::class, 'logout']);
 
     Route::get('user', [UserController::class, 'current']);

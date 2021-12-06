@@ -19,7 +19,13 @@
 
         <ul class="navbar-nav ms-auto">
           <!-- Authenticated -->
-          <li v-if="user" class="nav-item dropdown">
+          <template v-if="user">
+            <li class="nav-item">
+              <router-link :to="{ name: 'kategori' }" class="nav-link" active-class="active">
+                {{ $t('kategori') }}
+              </router-link>
+            </li>
+          <li  class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-dark"
                href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
             >
@@ -39,6 +45,7 @@
               </a>
             </div>
           </li>
+          </template>
           <!-- Guest -->
           <template v-else>
             <li class="nav-item">
