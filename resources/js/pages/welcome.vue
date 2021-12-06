@@ -22,7 +22,7 @@
       </div>
 
       <div class="links">
-        <a href="https://github.com/cretueusebiu/laravel-vue-spa">github.com/cretueusebiu/laravel-vue-spa</a>
+        <a href="https://github.com/godgodwinter/babeng-laravue">Babeng Laravel Vue </a>
       </div>
     </div>
   </div>

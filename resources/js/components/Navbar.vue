@@ -51,6 +51,11 @@
                 {{ $t('register') }}
               </router-link>
             </li>
+            <li class="nav-item">
+              <a href="https://baemon.web.id" class="nav-link" active-class="active" target="_blank">
+                {{ $t('Baemon') }}
+              </a>
+            </li>
           </template>
         </ul>
       </div>
