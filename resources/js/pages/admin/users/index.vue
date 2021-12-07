@@ -10,6 +10,7 @@
             <div class="control">
                 <div class="select">
                     <select v-model="length" @change="resetPagination()">
+                        <option value="5">5</option>
                         <option value="10">10</option>
                         <option value="20">20</option>
                         <option value="30">30</option>
@@ -17,19 +18,19 @@
                 </div>
             </div>
         </div>
-            <table id="myTable" class="table table-hover table-striped py-2 px-2" style="width:100%">
+            <table id="myTable" class="table table-hover table-bordered py-2 px-2" style="width:100%">
         <thead class="table-dark">
                 <tr>
                     <th v-for="column in columns" :key="column.name" @click="sortBy(column.name)"
-                        :class="sortKey === column.name ? (sortOrders[column.name] > 0 ? 'sorting_asc' : 'sorting_desc') : 'sorting'"
-                        style="width: 40%; cursor:pointer;">
+                        :class="sortKey === column.name ? (sortOrders[column.name] > 0 ? 'sorting_asc' : 'sorting_desc') : 'sorting'">
+                        <!-- style="width: 40%; cursor:pointer;"> -->
                         {{column.label}}
                     </th>
                 </tr>
         </thead>
         <tbody>
-                <tr v-for="user in paginatedUsers" :key="user.id">
-                <td class="babeng-min-row text-center">{{user.id}}</td>
+                <tr v-for="(user,index) in paginatedUsers" :key="user.id">
+                <td class="babeng-min-row text-center">{{index+1}}</td>
                 <td class="babeng-min-row">
                   <button class="btn btn-sm btn-info">
                     <i class="fas fa-angle-double-right"></i>
