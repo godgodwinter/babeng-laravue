@@ -30,12 +30,9 @@
         </thead>
         <tbody>
                 <tr v-for="(user,index) in paginatedUsers" :key="user.id">
-                <td class="babeng-min-row text-center">{{index+1}}</td>
-                <td class="babeng-min-row">
-                  <button class="btn btn-sm btn-info">
-                    <i class="fas fa-angle-double-right"></i>
-                    </button>
-                </td>
+                <td class="babeng-min-row text-center">{{((pagination.currentPage-1)*length)+index+1}}</td>
+
+                    <td><a class="btn btn-danger btn-sm" href="#" @click="deleteUser(user.id)">Remove</a></td>
                 <td>{{user.name}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.name}}</td>
@@ -166,7 +163,7 @@ export default {
         //     });
         // },
         deleteUser(id){
-            swal({
+            new swal({
                 title: 'Delete this user?',
                 text: "You won't be able to revert this!",
                 type: 'warning',
@@ -176,7 +173,7 @@ export default {
                 confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.value) {
-                        axios.delete(`/users/${id}/delete`).then(()=>{
+                        axios.delete(`/api/users/${id}/delete`).then(()=>{
                             Fire.$emit('reloadUsers')
                                 swal(
                                 'Deleted!',
@@ -194,11 +191,11 @@ export default {
         getUsers() {
             axios.get('/api/users/', {params: this.tableShow})
                 .then(response => {
-                    console.log('The data: ', response.data)
+                    // console.log('The data: ', response.data)
                     this.users = response.data;
                     this.pagination.total = this.users.length;
                     this.pagination.lastPage = this.pagination.total%this.length;
-                    console.log(this.pagination.lastPage);
+                    // console.log(this.pagination.lastPage);
                 })
                 .catch(errors => {
                     console.log(errors);
