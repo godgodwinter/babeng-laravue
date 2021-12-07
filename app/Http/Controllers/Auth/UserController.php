@@ -38,6 +38,7 @@ class UserController extends Controller
         }
 
         $users = $query->paginate($length);
+        // dd($users);
         return ['data' => $users];
     }
 

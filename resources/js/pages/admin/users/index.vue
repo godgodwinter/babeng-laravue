@@ -75,17 +75,26 @@
                     {{pagination.from}} - {{pagination.to}} of {{filteredUsers.length}}
                     <span v-if="`filteredUsers.length < pagination.total`"></span>
                 </span>
+                <a  class="btn btn-sm btn-primary pagination-previous" @click="pagination.currentPage=1">
+                    First
+                </a>
                 <a v-if="pagination.prevPage" class="btn btn-sm btn-primary pagination-previous" @click="--pagination.currentPage">
                     Prev
                 </a>
                 <a class="btn btn-sm pagination-previous btn-primary" v-else disabled>
                 Prev
                 </a>
+
+
                 <a v-if="pagination.nextPage" class="btn btn-sm btn-primary pagination-next" @click="++pagination.currentPage">
                     Next
                 </a>
                 <a class="btn btn-sm pagination-next btn-primary"  v-else disabled>
                     Next
+                </a>
+
+                <a class="btn btn-sm btn-primary pagination-previous" @click="pagination.currentPage=Math.floor(pagination.total/length)+1">
+                    Last
                 </a>
             </nav>
         </div>
@@ -136,7 +145,8 @@ export default {
                 nextPage: '',
                 prevPage: '',
                 from: '',
-                to: ''
+                to: '',
+                lastPage: ''
             },
         }
     },
@@ -187,6 +197,8 @@ export default {
                     console.log('The data: ', response.data)
                     this.users = response.data;
                     this.pagination.total = this.users.length;
+                    this.pagination.lastPage = this.pagination.total%this.length;
+                    console.log(this.pagination.lastPage);
                 })
                 .catch(errors => {
                     console.log(errors);
@@ -197,6 +209,7 @@ export default {
             this.pagination.to = pageNumber * length > array.length ? array.length : pageNumber * length;
             this.pagination.prevPage = pageNumber > 1 ? pageNumber : '';
             this.pagination.nextPage = array.length > this.pagination.to ? pageNumber + 1 : '';
+            this.pagination.lastPage = this.pagination.total%this.length;
             return array.slice((pageNumber - 1) * length, pageNumber * length);
         },
         resetPagination() {
