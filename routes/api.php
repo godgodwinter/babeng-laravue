@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('/users', [UserController::class, 'getUsers']);
+Route::delete('/users/{user}/delete', [UserController::class, 'deleteUser']);
 
 Route::group(['middleware' => 'auth:api'], function () {
 

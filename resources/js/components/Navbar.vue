@@ -21,6 +21,9 @@
           <!-- Authenticated -->
           <template v-if="user">
             <li class="nav-item">
+              <router-link :to="{ name: 'users' }" class="nav-link" active-class="active">
+                {{ $t('Users') }}
+              </router-link>
               <router-link :to="{ name: 'kategori' }" class="nav-link" active-class="active">
                 {{ $t('kategori') }}
               </router-link>

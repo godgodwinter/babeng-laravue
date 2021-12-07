@@ -9,6 +9,7 @@ import '~/components'
 
 Vue.config.productionTip = false
 
+window.Fire = new Vue();
 /* eslint-disable no-new */
 new Vue({
   i18n,

@@ -14,6 +14,7 @@ export default [
 
   { path: '/home', name: 'home', component: page('home.vue') },
   { path: '/kategori', name: 'kategori', component: page('admin/kategori/index.vue') },
+  { path: '/users', name: 'users', component: page('admin/users/index.vue') },
   {
     path: '/settings',
     component: page('settings/index.vue'),
