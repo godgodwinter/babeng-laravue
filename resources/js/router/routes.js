@@ -13,7 +13,8 @@ export default [
   { path: '/email/resend', name: 'verification.resend', component: page('auth/verification/resend.vue') },
 
   { path: '/home', name: 'home', component: page('home.vue') },
-  { path: '/kategori', name: 'kategori', component: page('admin/kategori/index.vue') },
+  { path: '/kategori', name: 'kategori', component: page('admin/example/goodtable.vue') },
+  // { path: '/kategori', name: 'kategori', component: page('admin/kategori/index.vue') },
   { path: '/users', name: 'users', component: page('admin/users/index.vue') },
   {
     path: '/settings',

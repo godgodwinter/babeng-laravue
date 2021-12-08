@@ -6,6 +6,13 @@ import App from '~/components/App'
 
 import swal from 'sweetalert2';
 
+
+// import VueGoodTablePlugin from 'vue-good-table';
+
+// import the styles
+// import 'vue-good-table/dist/vue-good-table.css'
+
+// Vue.use(VueGoodTablePlugin);
 import '~/plugins'
 import '~/components'
 
