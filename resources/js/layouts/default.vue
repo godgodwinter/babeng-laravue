@@ -2,7 +2,7 @@
   <div class="main-layout">
     <navbar />
 
-    <div class="container-lg mt-4">
+    <div class="container mt-4">
       <child />
     </div>
   </div>
@@ -19,3 +19,10 @@ export default {
   }
 }
 </script>
+
+
+<style scoped>
+.container {
+  max-width: 1600px;
+}
+</style>
