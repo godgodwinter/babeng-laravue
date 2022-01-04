@@ -25,6 +25,14 @@ export default [
       { path: 'password', name: 'settings.password', component: page('settings/password.vue') }
     ]
   },
+  {
+    path: '/admin/sekolah',
+    component: page('admin/sekolah/index.vue'),
+    children: [
+      { path: '', redirect: { name: 'sekolah.profile' } },
+      { path: '/admin/sekolah/profile', name: 'sekolah.profile', component: page('admin/sekolah/profile.vue') },
+    ]
+  },
 
   { path: '*', component: page('errors/404.vue') }
 ]

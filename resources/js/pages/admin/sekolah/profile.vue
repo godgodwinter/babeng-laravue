@@ -1,5 +1,6 @@
 <template>
-  <card :title="$t('your_info')">
+  <card :title="$t('Ini halaman sekolah')">
+    <h5>Test Sekolah</h5>
     <form @submit.prevent="update" @keydown="form.onKeydown($event)">
       <alert-success :form="form" :message="$t('Data berhasil di ubah!')" />
       <!-- <alert-success :form="form" :message="$t('info_updated')" /> -->

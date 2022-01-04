@@ -60,6 +60,9 @@
 
           <!-- Authenticated -->
           <template v-if="user">
+             <router-link :to="{ name: 'sekolah.profile' }" class="nav-link" active-class="active">
+               Sekolah
+              </router-link>
              <router-link :to="{ name: 'users' }" class="nav-link" active-class="active">
                 {{ $t('Users') }}
               </router-link>
